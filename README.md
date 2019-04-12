@@ -5,6 +5,17 @@
 * Filter logs by IP or CIDR.
 * Extendable.
 
+## Getting Started:
+* Run the following to setup the virtualenv and activate it
+```
+$ ./scripts/venv.sh
+Running virtualenv with interpreter /usr/local/bin/python3
+...
+...
+
+$ . .env/bin/activate
+(.env) $
+```
 ## Usage:
 
 ```
