@@ -19,5 +19,5 @@ def test_ip_filter_true_for_exact_match(log):
     assert ip_filter(log, '69.30.245.58') is True
 
 
-def test_ip_cidr_filter_false_for_wrong_ip(log):
+def test_ip_filter_false_for_wrong_ip(log):
     assert ip_filter(log, '69.30.245.51') is False
