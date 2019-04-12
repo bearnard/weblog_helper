@@ -21,3 +21,7 @@ def test_ip_filter_true_for_exact_match(log):
 
 def test_ip_filter_false_for_wrong_ip(log):
     assert ip_filter(log, '69.30.245.51') is False
+
+
+def test_ip_filter_true_none_ip(log):
+    assert ip_filter(log, None) is True
