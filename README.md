@@ -57,17 +57,20 @@ See `weblog_helper2.py`
 platform darwin -- Python 3.7.2, pytest-4.4.0, py-1.8.0, pluggy-0.9.0 -- .env/bin/python3.7
 cachedir: .pytest_cache
 rootdir: weblog_helper
-collected 7 items
+collected 10 items
 
-test_ip_cidr_filter.py::test_ip_cidr_filter_true_for_cidr PASSED                                                                 [ 14%]
-test_ip_cidr_filter.py::test_ip_cidr_filter_true_for_ip PASSED                                                                   [ 28%]
-test_ip_cidr_filter.py::test_ip_cidr_filter_false_for_wrong_ip PASSED                                                            [ 42%]
-test_ip_filter.py::test_ip_filter_true_for_exact_match PASSED                                                                    [ 57%]
-test_ip_filter.py::test_ip_filter_false_for_wrong_ip PASSED                                                                      [ 71%]
-test_parse_apache_log.py::test_parse_valid_apache_log_ip PASSED                                                                  [ 85%]
+test_filter_logs_stream.py::test_filter_logs_output_valid PASSED                                                                 [ 10%]
+test_ip_cidr_filter.py::test_ip_cidr_filter_true_for_cidr PASSED                                                                 [ 20%]
+test_ip_cidr_filter.py::test_ip_cidr_filter_true_for_ip PASSED                                                                   [ 30%]
+test_ip_cidr_filter.py::test_ip_cidr_filter_false_for_wrong_ip PASSED                                                            [ 40%]
+test_ip_cidr_filter.py::test_ip_cidr_filter_true_for_none_cidr PASSED                                                            [ 50%]
+test_ip_filter.py::test_ip_filter_true_for_exact_match PASSED                                                                    [ 60%]
+test_ip_filter.py::test_ip_filter_false_for_wrong_ip PASSED                                                                      [ 70%]
+test_ip_filter.py::test_ip_filter_true_for_none_ip PASSED                                                                        [ 80%]
+test_parse_apache_log.py::test_parse_valid_apache_log_ip PASSED                                                                  [ 90%]
 test_parse_apache_log.py::test_parse_invalid_log PASSED                                                                          [100%]
 
-======================================================= 7 passed in 0.16 seconds =======================================================
+====================================================== 10 passed in 0.21 seconds =======================================================
 ```
 ## Future Improvements:
 * Think of more test cases.
