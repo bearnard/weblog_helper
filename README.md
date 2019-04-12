@@ -31,6 +31,31 @@ optional arguments:
   --ip IP     Filter logs by ip
 ```
 
+## Examples:
+* IP
+```
+(.env) $ ./weblog_helper.py https://s3.amazonaws.com/syseng-challenge/public_access.log.txt --ip 180.180.230.89
+180.180.230.89 - - [03/Jun/2015:08:21:11 -0700] "GET /wp-login.php?action=register HTTP/1.1" 404 88 "http://redlug.com/" "Opera/9.80 (Windows NT 6.2; Win64; x64) Presto/2.12.388 Version/12.17" "redlug.com"
+```
+* CIDR
+```
+(.env) $ time ./weblog_helper2.py https://s3.amazonaws.com/syseng-challenge/public_access.log.txt --ip 106.208.0.0/24
+106.208.0.17 - - [03/Jun/2015:08:26:52 -0700] "GET /pdf/che_sos.pdf HTTP/1.1" 200 207560 "https://www.google.co.in/" "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36" "redlug.com"
+106.208.0.17 - - [03/Jun/2015:08:26:58 -0700] "GET /pdf/che_sos.pdf HTTP/1.1" 206 32768 "http://redlug.com/pdf/che_sos.pdf" "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36" "redlug.com"
+
+real	0m8.986s
+user	0m1.299s
+sys	0m0.089s
+
+```
+* Local file
+
+```
+(.env)$ ./weblog_helper2.py public_access.log.txt --ip 106.208.0.0/24
+106.208.0.17 - - [03/Jun/2015:08:26:52 -0700] "GET /pdf/che_sos.pdf HTTP/1.1" 200 207560 "https://www.google.co.in/" "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36" "redlug.com"
+106.208.0.17 - - [03/Jun/2015:08:26:58 -0700] "GET /pdf/che_sos.pdf HTTP/1.1" 206 32768 "http://redlug.com/pdf/che_sos.pdf" "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36" "redlug.com"
+```
+
 ## Extending:
 Part 2 asks for `CIDR` support to be added to the `--ip` arg.
 Of course that can easily be done by looking for a `/` and then switching logic to test for CIDR ranges.
@@ -38,16 +63,6 @@ Of course that can easily be done by looking for a `/` and then switching logic 
 For illustrative purposes I'll attempt to show how the core functionality of `weblog_helper.py` can be extended/overridden by another script.
 
 See `weblog_helper2.py` 
-
-## Examples:
-```
-(.env) $ ./weblog_helper.py https://s3.amazonaws.com/syseng-challenge/public_access.log.txt --ip 180.180.230.89
-180.180.230.89 - - [03/Jun/2015:08:21:11 -0700] "GET /wp-login.php?action=register HTTP/1.1" 404 88 "http://redlug.com/" "Opera/9.80 (Windows NT 6.2; Win64; x64) Presto/2.12.388 Version/12.17" "redlug.com"
-
-(.env) $ ./weblog_helper2.py https://s3.amazonaws.com/syseng-challenge/public_access.log.txt --ip 180.180.230.0/24
-180.180.230.89 - - [03/Jun/2015:08:21:11 -0700] "GET /wp-login.php?action=register HTTP/1.1" 404 88 "http://redlug.com/" "Opera/9.80 (Windows NT 6.2; Win64; x64) Presto/2.12.388 Version/12.17" "redlug.com"
-
-```
 
 ## Tests:
 
