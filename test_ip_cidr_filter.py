@@ -27,5 +27,5 @@ def test_ip_cidr_filter_false_for_wrong_ip(log):
     assert ip_cidr_filter(log, '69.30.245.51') is False
 
 
-def test_ip_cidr_filter_true_none_cidr(log):
+def test_ip_cidr_filter_true_for_none_cidr(log):
     assert ip_cidr_filter(log, None) is True
