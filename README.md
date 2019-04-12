@@ -52,7 +52,7 @@ test_ip_cidr_filter.py::test_ip_cidr_filter_true_for_cidr PASSED                
 test_ip_cidr_filter.py::test_ip_cidr_filter_true_for_ip PASSED                                                                   [ 28%]
 test_ip_cidr_filter.py::test_ip_cidr_filter_false_for_wrong_ip PASSED                                                            [ 42%]
 test_ip_filter.py::test_ip_filter_true_for_exact_match PASSED                                                                    [ 57%]
-test_ip_filter.py::test_ip_cidr_filter_false_for_wrong_ip PASSED                                                                 [ 71%]
+test_ip_filter.py::test_ip_filter_false_for_wrong_ip PASSED                                                                      [ 71%]
 test_parse_apache_log.py::test_parse_valid_apache_log_ip PASSED                                                                  [ 85%]
 test_parse_apache_log.py::test_parse_invalid_log PASSED                                                                          [100%]
 
