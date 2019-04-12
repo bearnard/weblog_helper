@@ -1,5 +1,10 @@
 # `weblog_helper` - A helper script to filter apache logs by ip.
 
+## Features:
+* Stream logs from an http/https endpoint or file on a filesystem.
+* Filter logs by IP or CIDR.
+* Extendable.
+
 ## Usage:
 
 ```
@@ -41,13 +46,17 @@ See `weblog_helper2.py`
 platform darwin -- Python 3.7.2, pytest-4.4.0, py-1.8.0, pluggy-0.9.0 -- .env/bin/python3.7
 cachedir: .pytest_cache
 rootdir: weblog_helper
-collected 2 items
+collected 7 items
 
-test_parse_apache_log.py::test_parse_valid_apache_log_ip PASSED                                                                  [ 50%]
+test_ip_cidr_filter.py::test_ip_cidr_filter_true_for_cidr PASSED                                                                 [ 14%]
+test_ip_cidr_filter.py::test_ip_cidr_filter_true_for_ip PASSED                                                                   [ 28%]
+test_ip_cidr_filter.py::test_ip_cidr_filter_false_for_wrong_ip PASSED                                                            [ 42%]
+test_ip_filter.py::test_ip_filter_true_for_exact_match PASSED                                                                    [ 57%]
+test_ip_filter.py::test_ip_cidr_filter_false_for_wrong_ip PASSED                                                                 [ 71%]
+test_parse_apache_log.py::test_parse_valid_apache_log_ip PASSED                                                                  [ 85%]
 test_parse_apache_log.py::test_parse_invalid_log PASSED                                                                          [100%]
 
-======================================================= 2 passed in 0.09 seconds =======================================================
-
+======================================================= 7 passed in 0.16 seconds =======================================================
 ```
 ## Future Improvements:
 * Create an `ApacheLogLine` class with named attributes for each field, i.e `log.remote_ip` instead of `log[0]`
