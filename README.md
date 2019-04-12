@@ -59,6 +59,7 @@ test_parse_apache_log.py::test_parse_invalid_log PASSED                         
 ======================================================= 7 passed in 0.16 seconds =======================================================
 ```
 ## Future Improvements:
+* Think of more test cases.
 * Create an `ApacheLogLine` class with named attributes for each field, i.e `log.remote_ip` instead of `log[0]`
 * Support recieving logs via `stdin`
 * URL schema support validation.
