@@ -43,11 +43,13 @@ def file_stream_logs(path):
         for line in fh:
             yield line.strip(), parse_apache_log(line)
 
+
 # A simple ip filter to match the exact ip.
 def ip_filter(log, ip):
     if ip is None or log[0] == ip:
         return True
     return False
+
 
 # Iterate through the stream of logs and
 # only print logs that the filter function allows.
@@ -59,9 +61,10 @@ def filter_logs(stream, filter_value, filter_func):
 
 def build_cli_parser():
     parser = argparse.ArgumentParser(description='Filter some apache logs.')
-    parser.add_argument('stream', help='URL of log source or path to log file.')
-    
-    return parser 
+    parser.add_argument(
+        'stream', help='URL of log source or path to log file.')
+    return parser
+
 
 def cli():
     parser = build_cli_parser()

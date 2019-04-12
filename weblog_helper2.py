@@ -3,6 +3,7 @@ import iptools
 
 from weblog_helper import build_cli_parser, filter_logs
 
+
 # A filter function to filter only logs
 # with a remote ip field in a CIDR range.
 def ip_cidr_filter(log, cidr):
